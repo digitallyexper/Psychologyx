@@ -1,587 +1,1319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Girl Secrets - Love Of Romance</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #121212;
-            --neon-red: #ff003c;
-            --neon-glow: #ff0000;
-            --text-main: #ffffff;
-            --text-muted: #b3b3b3;
-            --accent-gold: #ffd700;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Girl Secrets – Love of Romance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --dark: #0a0a0a;
+    --charcoal: #111111;
+    --card: #161616;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --crimson: #CC2020;
+    --crimson-bright: #FF2B2B;
+    --white: #F5F0E8;
+    --muted: #888880;
+    --border: rgba(201,168,76,0.15);
+  }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  html { scroll-behavior: smooth; }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 30px 10px;
-        }
+  /* ─── GRAIN OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
 
-        .tagline {
-            color: var(--neon-red);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px var(--neon-glow);
-        }
+  /* ─── TYPOGRAPHY ─── */
+  .font-cinzel { font-family: 'Cinzel', serif; }
+  .font-cormorant { font-family: 'Cormorant Garamond', serif; }
 
-        .headline {
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 25px;
-        }
+  /* ─── AMBIENT GLOW ─── */
+  .glow-red {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(180,20,20,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-        .product-img-container {
-            position: relative;
-            margin-bottom: 25px;
-        }
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px 60px;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(150,10,10,0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 80% 100%, rgba(180,20,20,0.1) 0%, transparent 60%),
+                var(--black);
+  }
 
-        .product-img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 12px;
-            border: 2px solid #1a1a1a;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-        }
+  .hero-ornament {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--crimson), var(--gold), transparent);
+  }
 
-        /* Timer Box */
-        .timer-box {
-            background: linear-gradient(145, #161616, #0d0d0d);
-            border: 1px solid rgba(255, 0, 60, 0.4);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.15);
-        }
+  .exclusive-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    margin-bottom: 40px;
+    position: relative;
+    background: rgba(201,168,76,0.05);
+    animation: fadeInDown 0.8s ease both;
+  }
 
-        .timer-text {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-        }
+  .exclusive-badge::before, .exclusive-badge::after {
+    content: '◆';
+    margin: 0 8px;
+    color: var(--crimson);
+    font-size: 8px;
+  }
 
-        .timer-display {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--neon-red);
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px var(--neon-glow);
-        }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.9s 0.1s ease both;
+  }
 
-        /* Pricing Area */
-        .price-container {
-            margin-bottom: 25px;
-        }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 1.0;
+    text-align: center;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    animation: fadeInUp 1s 0.2s ease both;
+  }
 
-        .old-price {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 16px;
-            margin-right: 10px;
-        }
+  .hero-title .line-gold { color: var(--gold-light); }
+  .hero-title .line-white { color: var(--white); }
+  .hero-title .line-crimson { color: var(--crimson-bright); text-shadow: 0 0 40px rgba(255,43,43,0.4); }
 
-        .new-price {
-            color: var(--accent-gold);
-            font-size: 32px;
-            font-weight: 700;
-        }
+  .hero-subtitle-script {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s 0.3s ease both;
+  }
 
-        /* 👇 YOUR CUSTOM PREMIUM RED STYLE CTA BUTTONS PLACED HERE 👇 */
-        /* CTA Button - Premium Red Style (Same as reference image, but red) */
-        .cta-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 22px 30px;
-            margin: 20px 0 30px 0;
+  /* ─── BOOK DISPLAY ─── */
+  .book-wrapper {
+    position: relative;
+    animation: fadeInUp 1s 0.4s ease both;
+    margin-bottom: 50px;
+  }
 
-            /* Bright red button */
-            background: #ff1a1a;
+  .book-glow {
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(ellipse 60% 80% at 50% 60%, rgba(180,20,20,0.35) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
 
-            /* Black text like your reference image */
-            color: #000000;
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
 
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+  .book-img {
+    width: min(380px, 90vw);
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 30px 60px rgba(180,10,10,0.5)) drop-shadow(0 10px 20px rgba(0,0,0,0.8));
+    transition: transform 0.6s ease;
+  }
 
-            border: none;
-            border-radius: 24px;
-            cursor: pointer;
+  .book-img:hover { transform: scale(1.03) translateY(-6px); }
 
-            /* Strong glowing red shadow */
-            box-shadow:
-                0 0 20px rgba(255, 0, 0, 0.6),
-                0 0 40px rgba(255, 0, 0, 0.45),
-                0 0 80px rgba(255, 0, 0, 0.25);
+  .hero-hook {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3.5vw, 26px);
+    font-style: italic;
+    text-align: center;
+    max-width: 680px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.85);
+    margin-bottom: 16px;
+    animation: fadeInUp 1s 0.5s ease both;
+  }
 
-            transition: all 0.3s ease;
-        }
+  .hero-sub {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+    animation: fadeInUp 1s 0.6s ease both;
+  }
 
-        .cta-btn:hover {
-            transform: scale(1.03);
-            background: #ff2b2b;
-            box-shadow:
-                0 0 25px rgba(255, 0, 0, 0.75),
-                0 0 50px rgba(255, 0, 0, 0.55),
-                0 0 100px rgba(255, 0, 0, 0.35);
-        }
+  /* ─── CTA BUTTON ─── */
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), #A8802A);
+    padding: 18px 50px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: fadeInUp 1s 0.7s ease both;
+  }
 
-        .cta-btn:active {
-            transform: scale(0.99);
-        }
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fff3, transparent);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
 
-        .cta-btn i {
-            margin-left: 10px;
-            color: #000000;
-        }
-        /* 👆 YOUR CUSTOM STYLE ENDS HERE 👆 */
+  .cta-btn:hover::before { transform: translateX(0); }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(201,168,76,0.4); }
 
-        /* Section Titles */
-        .section-title {
-            font-size: 22px;
-            text-align: center;
-            margin: 40px 0 20px 0;
-            position: relative;
-            font-weight: 700;
-        }
+  .cta-subtext {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-top: 16px;
+    font-style: italic;
+    animation: fadeInUp 1s 0.8s ease both;
+  }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--neon-red);
-            margin: 8px auto 0 auto;
-            border-radius: 2px;
-        }
+  /* ─── COUNTDOWN ─── */
+  #countdown-section {
+    background: linear-gradient(180deg, var(--black) 0%, #0d0404 50%, var(--black) 100%);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-        /* Benefits Cards */
-        .benefit-card {
-            background-color: var(--card-bg);
-            border: 1px solid #1f1f1f;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            transition: border 0.3s ease;
-        }
+  #countdown-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  }
 
-        .benefit-card:hover {
-            border-color: rgba(255, 0, 60, 0.5);
-        }
+  #countdown-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
 
-        .benefit-icon {
-            color: var(--neon-red);
-            font-size: 24px;
-            margin-right: 15px;
-            margin-top: 3px;
-            width: 30px;
-            text-align: center;
-        }
+  .countdown-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--crimson);
+    margin-bottom: 8px;
+  }
 
-        .benefit-info h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--text-main);
-        }
+  .countdown-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 36px;
+  }
 
-        .benefit-info p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+  .timer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
 
-        /* Bonus Cards */
-        .bonus-card {
-            background-color: var(--card-bg);
-            border: 1px solid #222;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  .timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-        .bonus-badge {
-            background-color: var(--neon-red);
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            text-transform: uppercase;
-            box-shadow: 0 0 10px var(--neon-glow);
-        }
+  .timer-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 16px 24px;
+    min-width: 80px;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .bonus-card h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--accent-gold);
-            padding-right: 80px;
-            text-align: left;
-        }
+  .timer-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--crimson);
+  }
 
-        .bonus-img {
-            width: 100%;
-            max-width: 220px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
+  .timer-num {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
 
-        .bonus-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-align: left;
-        }
+  .timer-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
 
-        /* Social Proof Stack */
-        .proof-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
+  .timer-sep {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: var(--crimson);
+    align-self: flex-start;
+    margin-top: 8px;
+    line-height: 1;
+  }
 
-        .proof-img {
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid #222;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
+  .stock-warning {
+    margin-top: 24px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--crimson);
+    font-style: italic;
+  }
 
-        /* Trust Badges */
-        .trust-bar {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: #0f0f0f;
-            border-radius: 10px;
-            padding: 15px 10px;
-            margin: 30px 0;
-            border: 1px solid #1c1c1c;
-        }
+  /* ─── DIVIDER ─── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+    margin: 60px auto;
+    max-width: 600px;
+  }
 
-        .trust-item {
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
 
-        .trust-item i {
-            color: var(--neon-red);
-            font-size: 18px;
-            margin-bottom: 5px;
-            display: block;
-        }
+  .divider-line.right { background: linear-gradient(90deg, var(--gold), transparent); }
 
-        /* FAQ Accordion */
-        .faq-item {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            margin-bottom: 10px;
-            overflow: hidden;
-            border: 1px solid #1a1a1a;
-        }
+  .divider-icon {
+    color: var(--gold);
+    font-size: 18px;
+  }
 
-        .faq-question {
-            padding: 15px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 20px; position: relative; }
 
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            font-size: 13px;
-            color: var(--text-muted);
-            border-top: 0 solid transparent;
-        }
+  .container { max-width: 900px; margin: 0 auto; }
 
-        .faq-item.active .faq-answer {
-            padding: 15px 20px;
-            max-height: 200px;
-            border-top: 1px solid #222;
-        }
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--crimson);
+    text-align: center;
+    margin-bottom: 16px;
+  }
 
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-            color: var(--neon-red);
-        }
+  .section-title span { color: var(--gold-light); }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 10px 20px 10px;
-            color: var(--text-muted);
-            font-size: 12px;
-            border-top: 1px solid #111;
-            margin-top: 40px;
-        }
+  .section-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.9;
+    color: rgba(245,240,232,0.75);
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 50px;
+  }
 
-        .footer-price {
-            font-size: 20px;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-    </style>
+  /* ─── PROBLEM CARDS ─── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 50px;
+  }
+
+  .problem-card {
+    background: var(--card);
+    padding: 36px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+
+  .problem-card:hover { background: #1a1010; }
+
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--crimson);
+  }
+
+  .problem-num {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: rgba(204,32,32,0.15);
+    position: absolute;
+    top: 16px; right: 20px;
+    line-height: 1;
+  }
+
+  .problem-head {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .problem-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: rgba(245,240,232,0.7);
+    line-height: 1.7;
+  }
+
+  /* ─── MODULES ─── */
+  #modules { background: var(--charcoal); }
+
+  .module-card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 40px 36px;
+    margin-bottom: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+
+  .module-card:hover { border-color: rgba(201,168,76,0.4); }
+
+  .module-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold), transparent);
+  }
+
+  .module-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    margin-bottom: 12px;
+  }
+
+  .module-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+  }
+
+  .module-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .module-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: rgba(0,0,0,0.4);
+    border-left: 2px solid rgba(201,168,76,0.3);
+  }
+
+  .module-item-icon {
+    color: var(--gold);
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .module-item-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.5;
+  }
+
+  /* ─── BONUS ─── */
+  #bonus { background: var(--black); }
+
+  .bonus-wrapper {
+    border: 1px solid var(--border);
+    padding: 50px 40px;
+    position: relative;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(201,168,76,0.03) 0%, rgba(204,32,32,0.03) 100%);
+  }
+
+  .bonus-wrapper::before {
+    content: '✦ EXCLUSIVE BONUS ✦';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--black);
+    padding: 0 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+  }
+
+  .bonus-free-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--black);
+    background: var(--gold);
+    padding: 6px 18px;
+    margin-bottom: 24px;
+  }
+
+  .bonus-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .bonus-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 36px;
+  }
+
+  .bonus-img {
+    width: min(420px, 90vw);
+    filter: drop-shadow(0 20px 50px rgba(201,168,76,0.25));
+    transition: transform 0.4s ease;
+  }
+
+  .bonus-img:hover { transform: scale(1.02); }
+
+  .bonus-extras {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .bonus-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+  }
+
+  /* ─── SOCIAL PROOF ─── */
+  #social-proof { background: var(--charcoal); padding: 80px 20px; }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .proof-img-card {
+    background: var(--card);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .proof-img-card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+    filter: grayscale(20%);
+  }
+
+  .proof-img-card:hover img { transform: scale(1.03); filter: grayscale(0%); }
+
+  /* ─── REVIEWS ─── */
+  #reviews { background: var(--black); }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .review-card {
+    background: var(--card);
+    padding: 36px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+
+  .review-card:hover { background: #171212; }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 120px;
+    color: rgba(201,168,76,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .review-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .reviewer-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--crimson), #600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+
+  .reviewer-role {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .verified {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #4CAF50;
+    margin-top: 2px;
+  }
+
+  /* ─── PRICING ─── */
+  #pricing { background: linear-gradient(180deg, var(--black) 0%, #0d0404 50%, var(--black) 100%); }
+
+  .pricing-card {
+    max-width: 480px;
+    margin: 0 auto;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: var(--card);
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: 24px; right: -30px;
+    background: var(--crimson);
+    color: var(--white);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 6px 40px;
+    transform: rotate(45deg);
+  }
+
+  .price-original {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 8px;
+  }
+
+  .price-main {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(52px, 10vw, 80px);
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-main span {
+    font-size: 0.4em;
+    vertical-align: top;
+    margin-top: 14px;
+    display: inline-block;
+  }
+
+  .price-sub {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    margin-bottom: 30px;
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 36px;
+    text-align: left;
+  }
+
+  .price-features li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: rgba(245,240,232,0.8);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .price-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .cta-btn-lg {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), #A8802A);
+    padding: 20px 40px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .cta-btn-lg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .cta-btn-lg:hover::before { transform: translateX(0); }
+  .cta-btn-lg:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(201,168,76,0.4); }
+
+  .guarantee {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── FINAL CTA ─── */
+  #final-cta {
+    background: var(--black);
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(180,20,20,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .final-title .accent { color: var(--gold-light); }
+
+  .final-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic;
+    color: rgba(245,240,232,0.7);
+    max-width: 560px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  /* ─── STICKY BAR ─── */
+  #sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg, #0d0000, #1a0505, #0d0000);
+    border-top: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+    flex-wrap: wrap;
+  }
+
+  .sticky-text {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .sticky-text span { color: var(--crimson); }
+
+  .sticky-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--black);
+    background: var(--gold);
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .sticky-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .timer-box { min-width: 60px; padding: 12px 16px; }
+    .pricing-card { padding: 40px 24px; }
+    .bonus-wrapper { padding: 40px 24px; }
+    #sticky-bar { padding: 10px; gap: 10px; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <section class="hero">
-            <div class="tagline">Unlock Your Ultimate Seductive Power & Irresistible Aura</div>
-            <h1 class="headline">Master The Secret Art Of Attraction & Romance</h1>
-            
-            <div class="product-img-container">
-                <img src="https://i.ibb.co/hrx53Ps/Picsart-26-05-17-11-41-24-892.jpg" alt="Master Girl Secrets Book Cover" class="product-img">
-            </div>
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-ornament"></div>
 
-            <div class="timer-box">
-                <div class="timer-text"><i class="fa-solid fa-bolt" style="color: var(--accent-gold);"></i> Special Offer Expiring Soon! Time Left:</div>
-                <div id="countdown" class="timer-display">02h 37m 00s</div>
-            </div>
+  <div class="exclusive-badge">DARKROMANCECODE</div>
 
-            <div class="price-container">
-                <span class="old-price">₹299</span>
-                <span class="new-price">₹199 Only</span>
-            </div>
+  <p class="hero-eyebrow">◆ Psychological Blueprint ◆</p>
 
-            <a href="https://superprofile.bio/vp/master-girl-secret-love-of-romance" class="cta-btn">
-                Claim Your Copy - ₹199 <i class="fa-solid fa-angles-right"></i>
-            </a>
-        </section>
+  <h1 class="hero-title">
+    <span class="line-gold">MASTER</span><br>
+    <span class="line-white">GIRL</span><br>
+    <span class="line-crimson">SECRETS</span>
+  </h1>
 
-        <section>
-            <h2 class="section-title">Why You Need This Blueprint</h2>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                <div class="benefit-info">
-                    <h3>Feminine Aura Boost</h3>
-                    <p>Apni presence ko itna magnetic banayein ki koi ignore na kar sake.</p>
-                </div>
-            </div>
+  <p class="hero-subtitle-script">Love of Romance</p>
 
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-solid fa-magnet"></i></div>
-                <div class="benefit-info">
-                    <h3>Attraction Without Chasing</h3>
-                    <p>Kisi ke peeche bhaagne ki zarurat nahi, log khud aapki taraf khinche chale aayenge.</p>
-                </div>
-            </div>
+  <div class="book-wrapper">
+    <div class="book-glow"></div>
+    <img class="book-img" src="https://i.ibb.co/67ZZN46N/file-0000000056207207a9544c80f1537987.png" alt="Master Girl Secrets Book">
+  </div>
 
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-solid fa-eye"></i></div>
-                <div class="benefit-info">
-                    <h3>Seductive Body Language</h3>
-                    <p>Bina kuch bole sirf apne eye-contact aur posture se samne wale par apna jaadu chalayein.</p>
-                </div>
-            </div>
+  <p class="hero-hook">"Most People Beg for Attention.<br>Masters Control It Without Speaking."</p>
+  <p class="hero-sub">Subconscious infiltration. Emotional dominance. Reverse control architecture.<br>Become the force they never knew they were looking for.</p>
 
-            <div class="benefit-card">
-                <div class="benefit-icon"><i class="fa-solid fa-brain"></i></div>
-                <div class="benefit-info">
-                    <h3>Psychological Triggers</h3>
-                    <p>Human mind ke un secret dark patterns ko samjhein jo normal log nahi jaante.</p>
-                </div>
-            </div>
-        </section>
+  <a href="https://superprofile.bio/vp/6a098cebec220c0013bece05" class="cta-btn">🔓 Unlock the Dark Codes ➔</a>
+  <p class="cta-subtext">⚠ Access restricted to an exclusive circle. Do not share these systems.</p>
+</section>
 
-        <section>
-            <h2 class="section-title">Exclusive Bonuses Included</h2>
-            <p style="text-align: center; font-size: 13px; color: var(--accent-gold); margin-top: -10px; margin-bottom: 20px; font-weight: bold;">(Free For Today Only)</p>
+<!-- ════════════════════════════════════ COUNTDOWN ════════════════════════════════════ -->
+<div id="countdown-section">
+  <p class="countdown-label">◆ LIMITED ACCESS ◆</p>
+  <p class="countdown-headline">This offer disappears when the timer hits zero</p>
+  <div class="timer-grid">
+    <div class="timer-unit">
+      <div class="timer-box"><div class="timer-num" id="cd-h">02</div></div>
+      <div class="timer-label">Hours</div>
+    </div>
+    <div class="timer-sep">:</div>
+    <div class="timer-unit">
+      <div class="timer-box"><div class="timer-num" id="cd-m">05</div></div>
+      <div class="timer-label">Minutes</div>
+    </div>
+    <div class="timer-sep">:</div>
+    <div class="timer-unit">
+      <div class="timer-box"><div class="timer-num" id="cd-s">00</div></div>
+      <div class="timer-label">Seconds</div>
+    </div>
+  </div>
+  <p class="stock-warning">⚠ Only 150 access slots per week to maintain systemic exclusivity</p>
+</div>
 
-            <div class="bonus-card">
-                <span class="bonus-badge">Free</span>
-                <h3>BONUS 1: THE BLACK MIRROR MIND</h3>
-                <img src="https://i.ibb.co/HTLGJcvL/IMG-20251008-WA0006.jpg" alt="The Black Mirror Mind" class="bonus-img">
-                <div class="bonus-desc">Dark manipulation tactics ko unmask karein. Samjhein ki log aapko kaise influence karte hain aur apne mind ko ek unbreakable power shield banayein.</div>
-            </div>
+<!-- ════════════════════════════════════ PROBLEM ════════════════════════════════════ -->
+<section id="problem">
+  <div class="container">
+    <p class="section-eyebrow reveal">◆ THE HARSH REALITY ◆</p>
+    <h2 class="section-title reveal">Why <span>Direct Approaches</span> Always Fail</h2>
+    <p class="section-body reveal">You have been playing the wrong game. The moment you chase, their defense mechanism activates. The moment you become predictable, they lose interest. The system is rigged — unless you know the code.</p>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <p class="problem-head">The Nice Guy Trap</p>
+        <p class="problem-text">Being always available and "nice" makes you predictable. Predictable people get taken for granted — never desired.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <p class="problem-head">The Chase Paradox</p>
+        <p class="problem-text">The harder you pursue, the faster they retreat. Direct pressure triggers ego defense mechanisms instantly.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <p class="problem-head">The Boredom Factor</p>
+        <p class="problem-text">People bore of convenience. If you cannot destabilize their emotional equilibrium, you will never become their addiction.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="bonus-card">
-                <span class="bonus-badge">Free</span>
-                <h3>BONUS 2: EFFORTLESS TEXTING</h3>
-                <img src="https://i.ibb.co/chZ63HrF/IMG-20251008-WA0008.jpg" alt="Effortless Texting Guide" class="bonus-img">
-                <div class="bonus-desc">Texting ke zariye attraction build karne ki ultimate art. Jaano kab, kya aur kaise text karna hai taaki samne wala aapke reply ka wait kare.</div>
-            </div>
+<!-- ════════════════════════════════════ MODULES ════════════════════════════════════ -->
+<section id="modules">
+  <div class="container">
+    <p class="section-eyebrow reveal">◆ INSIDE THE SYSTEM ◆</p>
+    <h2 class="section-title reveal">The <span>Core Framework</span></h2>
+    <p class="section-body reveal">A complete psychological blueprint engineered to convert your presence into an absolute necessity.</p>
 
-            <a href="https://superprofile.bio/vp/master-girl-secret-love-of-romance" class="cta-btn">
-                Get Book + All Bonuses <i class="fa-solid fa-angles-right"></i>
-            </a>
-        </section>
-
-        <section>
-            <h2 class="section-title">What Our Readers Are Saying</h2>
-            
-            <div class="proof-container">
-                <img src="https://i.ibb.co/G35KTT1j/mirrorcontroll-20260517-0001.jpg" alt="Review 1" class="proof-img">
-                <img src="https://i.ibb.co/C58yN6RW/mirrorcontroll-20260517-0003.jpg" alt="Review 2" class="proof-img">
-                <img src="https://i.ibb.co/Pzbc3n3F/IMG-20260331-WA0002.jpg" alt="Review 3" class="proof-img">
-                <img src="https://i.ibb.co/G3FM2Cm6/IMG-20260331-WA0001.jpg" alt="Review 4" class="proof-img">
-                <img src="https://i.ibb.co/VW3FThRD/Screenshot-2026-05-17-12-05-46-911-com-whatsapp-edit.jpg" alt="Review 5" class="proof-img">
-            </div>
-        </section>
-
-        <div class="trust-bar">
-            <div class="trust-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                100% Secure Checkout
-            </div>
-            <div class="trust-item">
-                <i class="fa-solid fa-bolt"></i>
-                Instant Download
-            </div>
-            <div class="trust-item">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                Lifetime Access
-            </div>
+    <div class="module-card reveal">
+      <p class="module-badge">MODULE 01</p>
+      <h3 class="module-title">The 9 Seductive Archetypes</h3>
+      <div class="module-items">
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>The Siren & The Rake</strong> — Mastering pure kinetic presence and raw singular obsession</span>
         </div>
-
-        <section>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    Yeh E-book kis language me hai?
-                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                </div>
-                <div class="faq-answer">
-                    Yeh book bahut hi simple aur easy Hinglish (Hindi + English mix) me hai jise aap aasaani se samajh sakte hain.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    Payment ke baad PDF kaise milega?
-                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                </div>
-                <div class="faq-answer">
-                    Instant download link screen par aayega, aur saath hi aapke register kiye gaye email par bhi copy turant bhej di jayegi.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    Kya bonuses ke liye alag se pay karna hoga?
-                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                </div>
-                <div class="faq-answer">
-                    Bilkul nahi! Agar aap aaj order karte hain, toh dono high-value bonuses aapko is offer ke sath bilkul FREE milenge.
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="footer-price">Complete Package Just For ₹199</div>
-            
-            <a href="https://superprofile.bio/vp/master-girl-secret-love-of-romance" class="cta-btn">
-                Get Instant Access <i class="fa-solid fa-angles-right"></i>
-            </a>
-            
-            <p style="margin-top: 20px; opacity: 0.5;">© 2026 DarkRomanceCode. All rights reserved.</p>
-        </footer>
-
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>The Ideal Lover & Dandy</strong> — Customizing fantasy structures based on unspoken desires</span>
+        </div>
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>The Natural & Coquette</strong> — Charming spontaneity with hot-and-cold delay tactics</span>
+        </div>
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>The Charmer, Charismatic & Star</strong> — Radiating untouchable quiet magnetic distance</span>
+        </div>
+      </div>
     </div>
 
-    <script>
-        // Countdown Timer Logic
-        const TIMER_KEY = "landing_page_timer_duration";
-        const DEFAULT_TIME = (2 * 60 * 60) + (37 * 60); // 2 hours 37 minutes in seconds
+    <div class="module-card reveal">
+      <p class="module-badge">MODULE 02</p>
+      <h3 class="module-title">24 Tactical Execution Blueprints</h3>
+      <div class="module-items">
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>Strategic Infiltration</strong> — Create false security and approach through indirect behavioral paths</span>
+        </div>
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>Calibration of Chaos</strong> — Deploy mixed signals to trigger intense cognitive investment</span>
+        </div>
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>The Absolute Vacuum</strong> — Execute precise withdrawals that turn absence into extreme craving</span>
+        </div>
+        <div class="module-item">
+          <span class="module-item-icon">◆</span>
+          <span class="module-item-text"><strong>The Threshold Risk</strong> — Master the bold move at the exact psychological peak</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        let timeLeft = localStorage.getItem(TIMER_KEY);
-        if (timeLeft === null) {
-            timeLeft = DEFAULT_TIME;
-            localStorage.setItem(TIMER_KEY, timeLeft);
-        } else {
-            timeLeft = parseInt(timeLeft, 10);
-        }
+<!-- ════════════════════════════════════ BONUS ════════════════════════════════════ -->
+<section id="bonus">
+  <div class="container">
+    <div class="bonus-wrapper reveal">
+      <div class="bonus-free-tag">FREE WITH YOUR ORDER</div>
+      <h2 class="bonus-title">3 Exclusive Bonus Books</h2>
+      <p class="bonus-sub">Delivered instantly alongside your main guide — no extra charge</p>
+      <img class="bonus-img" src="https://i.ibb.co/dShzC2B/file-00000000419c7207a9cbe7490a557bac.png" alt="Bonus Books">
+      <div class="bonus-extras">
+        <span class="bonus-tag">✦ COMPLETELY FREE</span>
+        <span class="bonus-tag">✦ INSTANT ACCESS</span>
+        <span class="bonus-tag">✦ EXCLUSIVE EXTRAS</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        const timerDisplay = document.getElementById("countdown");
+<!-- ════════════════════════════════════ SOCIAL PROOF ════════════════════════════════════ -->
+<section id="social-proof">
+  <div class="container">
+    <p class="section-eyebrow reveal">◆ REAL RESULTS ◆</p>
+    <h2 class="section-title reveal">What <span>Members Say</span></h2>
+    <div class="proof-grid reveal">
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/qMnwcZT9/Picsart-26-05-26-19-21-56-304.jpg" alt="Social Proof 1">
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/8nDGqTDY/Picsart-26-05-26-19-16-35-411.jpg" alt="Social Proof 2">
+      </div>
+    </div>
+  </div>
+</section>
 
-        function updateTimer() {
-            if (timeLeft <= 0) {
-                timeLeft = DEFAULT_TIME; // Loops back gracefully
-            } else {
-                timeLeft--;
-            }
-            localStorage.setItem(TIMER_KEY, timeLeft);
+<!-- ════════════════════════════════════ REVIEWS ════════════════════════════════════ -->
+<section id="reviews">
+  <div class="container">
+    <p class="section-eyebrow reveal">◆ VERIFIED BUYERS ◆</p>
+    <h2 class="section-title reveal">Elite <span>Member Reviews</span></h2>
+    <div class="review-grid reveal">
 
-            let hrs = Math.floor(timeLeft / 3600);
-            let mins = Math.floor((timeLeft % 3600) / 60);
-            let secs = timeLeft % 60;
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Mujhe laga tha yeh sirf relationships ke liye hai, but its manipulation frameworks are dangerously accurate. I applied Strategy 4 during a high-stakes transition — they executed exactly what I wanted, thinking it was their own idea. Absolutely elite material.</p>
+        <div class="reviewer-info">
+          <div class="reviewer-avatar">A</div>
+          <div>
+            <div class="reviewer-name">Aarav Singhal</div>
+            <div class="reviewer-role">Corporate Negotiator, Mumbai</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
 
-            hrs = hrs < 10 ? "0" + hrs : hrs;
-            mins = mins < 10 ? "0" + mins : mins;
-            secs = secs < 10 ? "0" + secs : secs;
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">The concept of "Presence builds desire, absence multiplies it" changed my entire social dynamic. I was always the over-available guy. The moment I executed the controlled vanishing act, the power balance flipped completely.</p>
+        <div class="reviewer-info">
+          <div class="reviewer-avatar">R</div>
+          <div>
+            <div class="reviewer-name">Rohan Malhotra</div>
+            <div class="reviewer-role">Media Consultant, Delhi</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
 
-            timerDisplay.innerHTML = `${hrs}h ${mins}m ${secs}s`;
-        }
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">If you are using direct logic, you are losing. This teaches you how to enter their internal world without breaking their comfort zone. The section on archetype mirroring alone is worth 10x the price.</p>
+        <div class="reviewer-info">
+          <div class="reviewer-avatar">K</div>
+          <div>
+            <div class="reviewer-name">Karan Vardhan</div>
+            <div class="reviewer-role">Luxury Brand Manager, Bangalore</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
 
-        setInterval(updateTimer, 1000);
-        updateTimer();
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">This is dark chess. The Push-Pull matrix under Strategy 13 is psychological mastery. When you break someone's predictable balance safely, you stop being an option — you become an obsession.</p>
+        <div class="reviewer-info">
+          <div class="reviewer-avatar">V</div>
+          <div>
+            <div class="reviewer-name">Vikramaditya Rao</div>
+            <div class="reviewer-role">High-Ticket Sales Closer, Hyderabad</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
 
-        // FAQ Accordion Logic
-        const faqQuestions = document.querySelectorAll(".faq-question");
-        faqQuestions.forEach(question => {
-            question.addEventListener("click", () => {
-                const item = question.parentElement;
-                item.classList.toggle("active");
-            });
-        });
-    </script>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Most content out there is basic advice. This deals with pure behavioral dynamics. Learning how to navigate the taboo zones safely makes you an unpredictable, magnetic presence. Premium social psychology at its peak.</p>
+        <div class="reviewer-info">
+          <div class="reviewer-avatar">D</div>
+          <div>
+            <div class="reviewer-name">Devansh Thapar</div>
+            <div class="reviewer-role">Creative Director, Project Lead</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">Yaar yeh book ne meri poori soch badal di. Pehle main always available rehta tha, ab strategically absent rehta hoon — aur results dekh ke shocked reh gaya. Ek investment nahi, yeh transformation hai.</p>
+        <div class="reviewer-info">
+          <div class="reviewer-avatar">S</div>
+          <div>
+            <div class="reviewer-name">Siddharth Nair</div>
+            <div class="reviewer-role">Entrepreneur, Pune</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ PRICING ════════════════════════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <p class="section-eyebrow reveal">◆ SECURE YOUR ACCESS ◆</p>
+    <h2 class="section-title reveal">One <span>Investment.</span> Lifetime Leverage.</h2>
+    <div class="pricing-card reveal">
+      <div class="pricing-badge">LIMITED</div>
+      <p class="price-original">₹999</p>
+      <div class="price-main"><span>₹</span>199</div>
+      <p class="price-sub">ONE-TIME ACCESS · INSTANT DELIVERY</p>
+      <ul class="price-features">
+        <li>Master Girl Secrets – Full Digital Guide</li>
+        <li>The 9 Seductive Archetypes (Module 1)</li>
+        <li>24 Tactical Execution Blueprints (Module 2)</li>
+        <li>3 Exclusive Bonus Books — FREE</li>
+        <li>Instant Digital Access</li>
+        <li>Lifetime Updates Included</li>
+      </ul>
+      <a href="https://superprofile.bio/vp/6a098cebec220c0013bece05" class="cta-btn-lg">🔓 ACCESS THE DARK CODES NOW ➔</a>
+      <p class="guarantee">🔒 Secure Checkout · Instant Access · ₹199 One-Time Only</p>
+    </div>
+    <p style="text-align:center;margin-top:30px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted);">If you are looking for generic dating advice or quick superficial fixes, please close this page.<br>We only host dark behavioral architectures.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ FINAL CTA ════════════════════════════════════ -->
+<section id="final-cta">
+  <div class="container">
+    <h2 class="final-title reveal">Stop Being <span class="accent">Chosen.</span><br>Start Being <span class="accent">Craved.</span></h2>
+    <p class="final-sub reveal">The subconscious does not respond to logic. It responds to mystery, tension, and the irresistible pull of the unknown. That is exactly what you are about to become.</p>
+    <a href="https://superprofile.bio/vp/6a098cebec220c0013bece05" class="cta-btn reveal" style="font-size:14px;padding:20px 60px;">UNLOCK ACCESS NOW ➔</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">DARKROMANCECODE</div>
+  <p class="footer-text">
+    Master Girl Secrets · Love of Romance<br>
+    © 2026 DarkRomanceCode · All Rights Reserved<br>
+    Results may vary. This is an educational digital product.
+  </p>
+</footer>
+
+<!-- ════════════════════════════════════ STICKY BAR ════════════════════════════════════ -->
+<div id="sticky-bar">
+  <span class="sticky-text">⚡ Limited Access — Only <span id="slots">47</span> slots remaining this week</span>
+  <a href="https://superprofile.bio/vp/6a098cebec220c0013bece05" class="sticky-btn">GET ACCESS · ₹199 ➔</a>
+</div>
+
+<script>
+// ─── COUNTDOWN TIMER ───
+(function() {
+  // Start: 2 hours 5 minutes from now
+  const total = (2 * 3600 + 5 * 60) * 1000;
+  const end = Date.now() + total;
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const diff = end - Date.now();
+    if (diff <= 0) {
+      document.getElementById('cd-h').textContent = '00';
+      document.getElementById('cd-m').textContent = '00';
+      document.getElementById('cd-s').textContent = '00';
+      return;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+// ─── SCROLL REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── SLOTS COUNTER (social proof) ───
+let slots = 47;
+setInterval(() => {
+  if (slots > 12) {
+    slots -= Math.floor(Math.random() * 2);
+    document.getElementById('slots').textContent = slots;
+  }
+}, 45000);
+</script>
 </body>
 </html>
-
